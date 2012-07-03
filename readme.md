@@ -12,7 +12,8 @@ add
 var options = {
     current: '01.08.2012',
     disableAbove: '31.08.2012',
-    disableBelow: '01.08.2012'
+    disableBelow: '01.08.2012',
+    disableDays: ['03.08.2012', '06.08.2012']
 }; 
 ```
 Options syntax depands on parse method if you parse your date format
