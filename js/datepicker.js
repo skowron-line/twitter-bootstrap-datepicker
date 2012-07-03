@@ -249,20 +249,18 @@
     , isBelow: function(d1, d2) {
     
         if(d1 == undefined) return false;
-    
-        var s1 = d1.split('.');
-        var s2 = d2.split('.');
-        
-        return new Date(s1[2], parseInt(s1[1], 10) -1, s1[0]).getTime() > new Date(s2[2], parseInt(s2[1], 10) -1, s2[0]).getTime();
+   
+        return this.parse(d1).getTime() > this.parse(d2).getTime();
     }
+    /**
+     * @skowron-line
+     * Checks if d2 is above d1
+     */
     , isAbove: function(d1, d2) {
 
         if(d1 == undefined) return false;
-    
-        var s1 = d1.split('.');
-        var s2 = d2.split('.');
-        
-        return new Date(s2[2], parseInt(s2[1], 10) -1, s2[0]).getTime() > new Date(s1[2], parseInt(s1[1], 10) -1, s1[0]).getTime();
+   
+        return this.parse(d2).getTime() > this.parse(d1);
     }
     , selectDate: function(date) {
         if (typeof(date) == "undefined") {
@@ -275,15 +273,7 @@
              * @skowron-line
              * if options.current is set and field value is null set options.current as current day
              */
-             if(this.current)
-             {
-                var s = this.current.split('.');
-                date = new Date(s[2], parseInt(s[1], 10) -1, s[0]);             
-             }
-             else
-             {
-                date = new Date();
-            }
+            date = (this.current) ? this.parse(this.current) : new Date();
         } 
 
         this.selectedDate = date;
@@ -366,8 +356,8 @@
         if (dom.length === 1) {
           dom = '0' + dom;
         }
-        return dom +'.'+ month +'.'+ date.getFullYear();
-        //return date.getFullYear() + '-' + month + "-" + dom;
+        //return dom +'.'+ month +'.'+ date.getFullYear();
+        return date.getFullYear() + '-' + month + "-" + dom;
       }
 
     , ahead: function(months, days) {
@@ -435,7 +425,7 @@
   , shortDayNames: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
   , startOfWeek: 1
   };
-  
+  /**
    $.extend($.fn.datepicker.defaults, {
     parse: function (string) {
       var matches;
@@ -458,7 +448,9 @@
       return dom +'.'+ month +'.'+ date.getFullYear();
       //return month + "/" + dom + "/" + date.getFullYear();
     }
-  }); 
+  });
+  */ 
   
 }( window.jQuery || window.ender );
+
 
