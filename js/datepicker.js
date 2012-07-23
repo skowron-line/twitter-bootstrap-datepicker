@@ -36,7 +36,7 @@
     }
   }
 
-  function DatePicker( element ) {
+  function DatePicker( element, options ) {
     this.$el = $(element);
     this.proxy('show').proxy('ahead').proxy('hide').proxy('keyHandler').proxy('selectDate');
     
@@ -425,7 +425,7 @@
   , shortDayNames: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
   , startOfWeek: 1
   };
-  /**
+  
    $.extend($.fn.datepicker.defaults, {
     parse: function (string) {
       var matches;
@@ -449,7 +449,7 @@
       //return month + "/" + dom + "/" + date.getFullYear();
     }
   });
-  */ 
+  
   
 }( window.jQuery || window.ender );
 
