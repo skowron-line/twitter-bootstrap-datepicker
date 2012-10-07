@@ -22,7 +22,7 @@ Options syntax depands on parse method if you parse your date format
     YYY-mm-dd - current: '2012-08-01'
     dd/mm/YYY - current: '01/08/2012'
 ```
-If you want to set datepicker to single file
+If you want to set datepicker to single input
 ```javascript
 $('#date').datepicker(options);
 ```
